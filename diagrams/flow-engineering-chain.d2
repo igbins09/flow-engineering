@@ -1,0 +1,200 @@
+# Flow Engineering — D-P-D Chain Diagram
+# Render: d2 flow-engineering-chain.d2 flow-engineering-chain.png
+
+direction: right
+
+title: {
+  label: "Flow Engineering: D→P→D"
+  style: {
+    font-size: 28
+    bold: true
+  }
+}
+
+# ── Deterministic Steps (Blue) ────────────────────────────
+
+fetch: "D: Fetch\nInput Data" {
+  style: {
+    fill: "#1e40af"
+    font-color: "#ffffff"
+    stroke: "#1e3a8a"
+    border-radius: 8
+    bold: true
+    font-size: 16
+  }
+}
+
+validate: "D: Validate\nLLM Output" {
+  style: {
+    fill: "#1e40af"
+    font-color: "#ffffff"
+    stroke: "#1e3a8a"
+    border-radius: 8
+    bold: true
+    font-size: 16
+  }
+}
+
+execute: "D: Execute\nAction + Log" {
+  style: {
+    fill: "#1e40af"
+    font-color: "#ffffff"
+    stroke: "#1e3a8a"
+    border-radius: 8
+    bold: true
+    font-size: 16
+  }
+}
+
+# ── Probabilistic Steps (Orange) ─────────────────────────
+
+classify: "P: LLM\nClassify / Generate" {
+  style: {
+    fill: "#ea580c"
+    font-color: "#ffffff"
+    stroke: "#c2410c"
+    border-radius: 8
+    bold: true
+    font-size: 16
+  }
+}
+
+# ── Flow ──────────────────────────────────────────────────
+
+fetch -> classify: "Structured\nJSON" {
+  style: {
+    stroke: "#6b7280"
+    font-size: 12
+  }
+}
+
+classify -> validate: "LLM\nOutput" {
+  style: {
+    stroke: "#6b7280"
+    font-size: 12
+  }
+}
+
+validate -> execute: "Validated\nData" {
+  style: {
+    stroke: "#16a34a"
+    stroke-width: 3
+    font-size: 12
+    font-color: "#16a34a"
+  }
+}
+
+# ── Failure Path ──────────────────────────────────────────
+
+retry: "Retry / Escalate" {
+  style: {
+    fill: "#dc2626"
+    font-color: "#ffffff"
+    stroke: "#b91c1c"
+    border-radius: 8
+    font-size: 14
+  }
+}
+
+validate -> retry: "Validation\nFailed" {
+  style: {
+    stroke: "#dc2626"
+    stroke-dash: 5
+    font-size: 12
+    font-color: "#dc2626"
+  }
+}
+
+retry -> classify: "Retry with\nfeedback" {
+  style: {
+    stroke: "#dc2626"
+    stroke-dash: 5
+    font-size: 12
+    font-color: "#dc2626"
+  }
+}
+
+# ── Telemetry ─────────────────────────────────────────────
+
+telemetry: "Telemetry DB" {
+  shape: cylinder
+  style: {
+    fill: "#7c3aed"
+    font-color: "#ffffff"
+    stroke: "#6d28d9"
+    font-size: 14
+  }
+}
+
+fetch -> telemetry: {
+  style: {
+    stroke: "#a78bfa"
+    stroke-dash: 3
+    opacity: 0.5
+  }
+}
+
+classify -> telemetry: {
+  style: {
+    stroke: "#a78bfa"
+    stroke-dash: 3
+    opacity: 0.5
+  }
+}
+
+validate -> telemetry: {
+  style: {
+    stroke: "#a78bfa"
+    stroke-dash: 3
+    opacity: 0.5
+  }
+}
+
+execute -> telemetry: {
+  style: {
+    stroke: "#a78bfa"
+    stroke-dash: 3
+    opacity: 0.5
+  }
+}
+
+# ── Legend ─────────────────────────────────────────────────
+
+legend: {
+  label: "Legend"
+  style: {
+    fill: "#f8fafc"
+    stroke: "#e2e8f0"
+    border-radius: 8
+    font-size: 14
+  }
+
+  d_label: "D = Deterministic (code)" {
+    style: {
+      fill: "#1e40af"
+      font-color: "#ffffff"
+      border-radius: 4
+      font-size: 12
+    }
+  }
+
+  p_label: "P = Probabilistic (LLM)" {
+    style: {
+      fill: "#ea580c"
+      font-color: "#ffffff"
+      border-radius: 4
+      font-size: 12
+    }
+  }
+
+  rule: "Rule: Never chain P→P\nwithout D between them" {
+    style: {
+      fill: "#fef2f2"
+      font-color: "#991b1b"
+      stroke: "#fecaca"
+      border-radius: 4
+      font-size: 12
+      bold: true
+    }
+  }
+}
