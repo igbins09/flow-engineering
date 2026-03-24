@@ -165,7 +165,7 @@ skill-name/
 
 This means:
 - When the LLM hallucinates, `validate.py` catches it
-- When an API changes, you fix `fetch.py` — not a prompt
+- When an API changes, you fix `fetch.py`  -  not a prompt
 - When you need to audit, `execute.py` has the full log
 - When accuracy drops, telemetry tells you which P step degraded
 
@@ -208,11 +208,11 @@ Ranked by ROI. Start at Tier 1. Add Tier 2 for high-stakes workflows. Tier 3 whe
 
 We refactored 23 AI skills from prose-only LLM chains to D-P-D architecture:
 
-- **P steps dropped from 60 to 25** — pushed 58% of logic into deterministic code
-- **Every skill now has deterministic validation gates** — no unvalidated P-P chains remain
-- **Structured JSON output on all LLM calls** — no more parsing prose with regex
-- **Full telemetry** — every step logged with duration, success/failure, and input/output hashes
-- **Debugging time cut by 70%** — when something fails, telemetry points to the exact step
+- **P steps dropped from 60 to 25**  -  pushed 58% of logic into deterministic code
+- **Every skill now has deterministic validation gates**  -  no unvalidated P-P chains remain
+- **Structured JSON output on all LLM calls**  -  no more parsing prose with regex
+- **Full telemetry**  -  every step logged with duration, success/failure, and input/output hashes
+- **Debugging time cut by 70%**  -  when something fails, telemetry points to the exact step
 
 The 90/59 principle isn't just math. It's the entire design philosophy: **push complexity into deterministic code so your probabilistic steps do as little as possible.**
 
@@ -221,25 +221,25 @@ The 90/59 principle isn't just math. It's the entire design philosophy: **push c
 ## What's Included
 
 ### `/templates`
-- **[`skill-creator/`](templates/skill-creator/)** — Full skill scaffolding template with D-P-D flow, structured output, and telemetry
-- **[`scripts/`](templates/scripts/)** — Generic `fetch.py`, `validate.py`, `execute.py` templates
-- **[`telemetry.sql`](templates/telemetry.sql)** — SQLite schema for workflow tracking (3 tables)
+- **[`skill-creator/`](templates/skill-creator/)**  -  Full skill scaffolding template with D-P-D flow, structured output, and telemetry
+- **[`scripts/`](templates/scripts/)**  -  Generic `fetch.py`, `validate.py`, `execute.py` templates
+- **[`telemetry.sql`](templates/telemetry.sql)**  -  SQLite schema for workflow tracking (3 tables)
 
 ### `/examples`
-- **[`before-after.md`](examples/before-after.md)** — Real before/after of a triage skill refactored from 4 chained P steps to D-P-D
+- **[`before-after.md`](examples/before-after.md)**  -  Real before/after of a triage skill refactored from 4 chained P steps to D-P-D
 
 ### `/research`
-- **[`citations.md`](research/citations.md)** — Academic papers backing the 90/59 principle
-- **[`cross-validation-prompt.md`](research/cross-validation-prompt.md)** — Prompt for cross-validating ideas across multiple LLMs
+- **[`citations.md`](research/citations.md)**  -  Academic papers backing the 90/59 principle
+- **[`cross-validation-prompt.md`](research/cross-validation-prompt.md)**  -  Prompt for cross-validating ideas across multiple LLMs
 
 ### `/diagrams`
-- **[`flow-engineering-chain.d2`](diagrams/flow-engineering-chain.d2)** — D2 source for the D-P-D chain diagram
+- **[`flow-engineering-chain.d2`](diagrams/flow-engineering-chain.d2)**  -  D2 source for the D-P-D chain diagram
 
 ---
 
 ## The Philosophy
 
-Most AI agent frameworks focus on orchestration — how to chain LLM calls together. Flow Engineering focuses on **what goes between those calls.**
+Most AI agent frameworks focus on orchestration  -  how to chain LLM calls together. Flow Engineering focuses on **what goes between those calls.**
 
 The insight: reliability doesn't come from better prompts. It comes from better architecture. Specifically, from treating every LLM call as an untrusted input that must be validated before it touches anything real.
 
