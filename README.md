@@ -14,7 +14,7 @@
 
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License: MIT"></a>
-  <a href="https://github.com/flowthinkers/flow-engineering/stargazers"><img src="https://img.shields.io/github/stars/flowthinkers/flow-engineering?style=social" alt="Stars"></a>
+  <a href="https://github.com/igbins09/flow-engineering/stargazers"><img src="https://img.shields.io/github/stars/igbins09/flow-engineering?style=social" alt="Stars"></a>
   <a href="https://richardigbinoba.com"><img src="https://img.shields.io/badge/site-richardigbinoba.com-black" alt="Website"></a>
 </p>
 
