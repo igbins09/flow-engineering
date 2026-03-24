@@ -252,9 +252,8 @@ LLM output is user input. Treat it that way.
 ## Links
 
 - **Full Product:** [tools.flowthinkers.com](https://tools.flowthinkers.com)
-- **YouTube:** [youtube.com/@flowthinkers](https://youtube.com/@flowthinkers)
 - **LinkedIn:** [linkedin.com/in/richardigbinoba](https://linkedin.com/in/richardigbinoba)
-- **X:** [@richeythinks](https://x.com/richeythinks)
+- **X:** [@richiesuazo](https://x.com/richiesuazo)
 - **Website:** [richardigbinoba.com](https://richardigbinoba.com)
 - **Newsletter:** [richardigbinoba.substack.com](https://richardigbinoba.substack.com)
 
